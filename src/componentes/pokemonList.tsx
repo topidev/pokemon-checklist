@@ -2,13 +2,10 @@ import usePokemon from '../utils/fetchData'
 
 export default function PokemonList() {
 
-    const { pokemonList, setPokemonList } = usePokemon()
+    const { pokemonMasterList, isLoading, toggleCatched } = usePokemon()
 
-    const toggleCatched = (id: number) => {
-        const newList = pokemonList.map(p => 
-            p.id === id ? { ... p, catched: !p.catched } : p
-        );
-        setPokemonList(newList)
+    if (isLoading) {
+        return <div className="text-center text-3xl">Cargando la Pokédex...</div>;
     }
 
     return (
@@ -16,7 +13,7 @@ export default function PokemonList() {
             <h2> Pokemon chocolate chart </h2>
             <ul className="dexEntry ">
             {
-                pokemonList.map(pokemon => (
+                pokemonMasterList.map(pokemon => (
                     <li 
                         className={`pokemon ${pokemon.catched ? 'catched': 'wild'}`} 
                         key={ pokemon.id }
