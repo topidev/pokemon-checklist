@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "tailwindcss";
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -29,7 +30,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  place-items:start;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -90,7 +91,7 @@ button:focus-visible {
   display: flex;
   align-items:center;
   flex-flow: row wrap;
-  justify-content:space-between;
+  justify-content:flex-start;
   li.pokemon {
     width: 33%;
     display: block;
@@ -113,6 +114,26 @@ button:focus-visible {
         font-size:16px;
         margin:0 auto;
       }
+    }
+  }
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0); }
+  20% { transform: translate(-5px, 0) rotate(-10deg); }
+  30% { transform: translate(5px, 0) rotate(10deg); }
+  50% { transform: translate(-5px, 0) rotate(-5deg); }
+  60% { transform: translate(5px, 0) rotate(5deg); }
+  100% { transform: translate(0, 0) rotate(0); }
+}
+
+
+.pokeball {
+  border:0;
+  transform-origin: bottom;
+  &.shake {
+    &:hover {
+      animation: shake 1s infinite cubic-bezier(0.645, 0.045, 0.355, 1);
     }
   }
 }
