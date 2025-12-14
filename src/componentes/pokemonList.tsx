@@ -42,7 +42,7 @@ export default function PokemonList() {
                 >
                     {/* ✔ */}
                     <img 
-                        src="../../public/Assets/pokeball-color.svg"
+                        src="../../Assets/pokeball-color.svg"
                         className='w-full h-full'
                     />
                 </button>
